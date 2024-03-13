@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 void main() {
   runApp(GetMaterialApp(
-    initialRoute: "/",
+    initialRoute: "/Login",
     getPages: Routes.routes,
     debugShowCheckedModeBanner: false,
   ));
