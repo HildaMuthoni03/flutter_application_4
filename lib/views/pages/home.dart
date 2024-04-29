@@ -1,56 +1,44 @@
+import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
+import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_4/configs/constants.dart';
 import 'package:flutter_application_4/controller/home_controller.dart';
-import 'package:flutter_application_4/views/pages/calculator.dart';
-import 'package:flutter_application_4/views/pages/students.dart';
+import 'package:flutter_application_4/views/pages/dashboard.dart';
+import 'package:flutter_application_4/views/pages/orders.dart';
+import 'package:flutter_application_4/views/pages/products.dart';
+import 'package:flutter_application_4/views/pages/profile.dart';
 import 'package:get/get.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+HomeController homeController=Get.put(HomeController());
+var screenList=[
+  Dashboard(),
+  Orders(),
+  Profile(),
+  Products(),
+];
 
 // ignore: must_be_immutable
 class Home extends StatelessWidget {
-  Home({super.key});
-
-  HomeController _controller = Get.put(HomeController());
-
-  var screens = [
-    Text(
-      "Home",
-      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-    ),
-    Calculator(),
-    Text("Notifications"),
-    Student(),
-  ];
+ const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {},
-          label: Row(
-            children: [
-              Icon(Icons.handshake),
-              Text("Hello Hilda"),
-            ],
-          )),
-      appBar: AppBar(
-        automaticallyImplyLeading: true,
-        foregroundColor: primaryColor,
-      ),
       bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: primaryColor,
-        items: [
-          Icon(Icons.home),
-          Icon(Icons.calculate),
-          Icon(Icons.notifications),
-          Icon(Icons.person),
-        ],
-        onTap: (value) {
-          _controller.updateSelectedPage(value);
-        },
-        animationDuration: Duration(milliseconds: 200),
+        color: Color.fromARGB(197, 110, 94, 3),
+        backgroundColor: Colors.white,
+        buttonBackgroundColor: Color.fromARGB(197, 110, 94, 3),
+        items: const[
+        CurvedNavigationBarItem(child: Icon(Icons.home,color: Colors.white,)),
+        CurvedNavigationBarItem(child: Icon(Icons.category,color: Colors.white,)),
+        CurvedNavigationBarItem(child: Icon(Icons.history,color: Colors.white)),
+        CurvedNavigationBarItem(child: Icon(Icons.person,color: Colors.white)),
+      ],
+      onTap: (index){
+        homeController.updateSelectedPage(index);
+      },
       ),
-      body: Obx(() => Center(child: screens[_controller.selectedPage.value])),
-    );
+      body: Obx(()=>Container(
+        child: screenList[homeController.selectedPage.value]
+      ),
+    ));
   }
 }
