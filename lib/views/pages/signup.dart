@@ -14,9 +14,9 @@ TextEditingController password=TextEditingController();
 TextEditingController firstname=TextEditingController();
 TextEditingController secondname=TextEditingController();
 
-class signup extends StatelessWidget {
-  const signup({super.key});
- 
+class Signup extends StatelessWidget{
+  const Signup({super.key});
+
   @override
   Widget build(BuildContext context) {
    return Scaffold(

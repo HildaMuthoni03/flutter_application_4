@@ -9,7 +9,6 @@ import 'package:http/http.dart' as http;
 LoginController loginController=Get.put(LoginController());
 OrderController orderController=Get.put(OrderController());
 
-
 class Orders extends StatelessWidget{
   const Orders({super.key});
   

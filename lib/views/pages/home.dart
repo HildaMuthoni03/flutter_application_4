@@ -8,6 +8,7 @@ import 'package:flutter_application_4/views/pages/products.dart';
 import 'package:flutter_application_4/views/pages/profile.dart';
 import 'package:get/get.dart';
 HomeController homeController=Get.put(HomeController());
+
 var screenList=[
   Dashboard(),
   Orders(),
@@ -15,9 +16,8 @@ var screenList=[
   Products(),
 ];
 
-// ignore: must_be_immutable
-class Home extends StatelessWidget {
- const Home({super.key});
+class Home extends StatelessWidget{
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {

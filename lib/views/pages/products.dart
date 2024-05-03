@@ -9,7 +9,6 @@ import 'package:http/http.dart' as http;
 ProductController productController=Get.put(ProductController());
 LoginController loginController=Get.put(LoginController());
 
-
 class Products extends StatelessWidget{
   const Products({super.key});
   
@@ -98,4 +97,4 @@ class Products extends StatelessWidget{
     }
    }
 }
-  }
+}

@@ -8,7 +8,7 @@ class Routes {
   static var routes = [
     GetPage(name: "/Login", page: () => Login()),
     GetPage(name: "/home", page: () => Home()),
-    GetPage(name: "/signup", page: () => signup()),
+    GetPage(name: "/signup", page: () => Signup()),
     GetPage(name: "/dashboard", page: () => Dashboard()),
 
   ];
